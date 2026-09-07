@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Youth Tutoring & Academic Resources</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Opportunities for Children & Teenagers</h1>
+    <nav>
+      <a href="index.html">Map & List</a>
+      <a href="opportunities.html">Youth Opportunities</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="controls">
+      <div class="control-row">
+        <label>Search: <input id="search" placeholder="Search by title, city, state..." /></label>
+        <label>Price:
+          <select id="price"><option value="any">Any</option><option value="free">Free</option><option value="paid">Paid</option></select>
+        </label>
+        <label>Availability: <input id="availability" placeholder="e.g. Weekends, Evenings" /></label>
+        <button id="clear">Clear filters</button>
+      </div>
+    </section>
+
+    <section id="content">
+      <div id="youth-list">
+        <h2>Youth Programs</h2>
+        <div id="results"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <small>Data source: <code>data/activities.json</code>. Page shows items that include children/teens in their age groups.</small>
+  </footer>
+
+  <script src="js/opportunities.js"></script>
+</body>
+</html>

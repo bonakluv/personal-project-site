@@ -1,3 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Volunteer & Activities Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-sA+e2Qv7Q0v0gq8k3Z1b4gZ2k6k8Qb9+7f5Q8mXq0+8=" crossorigin="" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Volunteer & Extracurricular Activities — U.S.</h1>
+    <nav>
+      <a href="index.html">Map & List</a>
+      <a href="opportunities.html">Youth Opportunities</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="controls">
+      <div class="control-row">
+        <label>Search: <input id="search" placeholder="Search by title, city, state..." /></label>
+        <label>Category:
+          <select id="category"><option value="">Any</option></select>
+        </label>
+        <label>Price:
+          <select id="price"><option value="any">Any</option><option value="free">Free</option><option value="paid">Paid</option></select>
+        </label>
+        <label>Age group:
+          <select id="age"><option value="">Any</option><option value="children">Children</option><option value="teens">Teens</option><option value="adults">Adults</option></select>
+        </label>
+      </div>
+      <div class="control-row">
+        <label>Availability: <input id="availability" placeholder="e.g. Weekends, Evenings" /></label>
+        <label>State: <input id="state" placeholder="State abbreviation (e.g. CA)" maxlength="2" /></label>
+        <button id="clear">Clear filters</button>
+      </div>
+    </section>
+
+    <section id="content">
+      <div id="map"></div>
+      <aside id="list">
+        <h2>Activities</h2>
+        <div id="results"></div>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    <small>Data is maintained in the repository (data/activities.json). Updates refresh automatically.</small>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-o9N1j7gkS6p2wQY3rJ1QZkYx9Qb9bQ9x6u1bq3s/9e8=" crossorigin=""></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
 <!DOCTYPE html>
 <html lang="en">
   <head>
