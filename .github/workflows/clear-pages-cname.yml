@@ -1,0 +1,29 @@
+name: Clear Pages custom domain
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  clear_cname:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clear Pages custom domain via API
+        env:
+          TOKEN: ${{ secrets.GH_PAT }}
+          REPO: bonakluv/personal-project-site
+        run: |
+          echo "Clearing Pages custom domain for $REPO"
+          resp=$(curl -s -o - -w "%{http_code}" -X PATCH \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: token $TOKEN" \
+            -d '{"cname":""}' \
+            "https://api.github.com/repos/$REPO/pages")
+          echo "Response: $resp"
+          if [[ "$resp" =~ ^2 ]]; then
+            echo "CNAME cleared successfully"
+          else
+            echo "Failed to clear CNAME" >&2
+            exit 1
+          fi
