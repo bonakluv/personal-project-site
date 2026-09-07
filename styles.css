@@ -1,0 +1,261 @@
+:root {
+  --bg: #07111f;
+  --panel: rgba(12, 25, 47, 0.78);
+  --panel-strong: rgba(15, 30, 55, 0.95);
+  --text: #eaf2ff;
+  --muted: #98a9c8;
+  --accent: #6ee7d8;
+  --accent-2: #8b5cf6;
+  --border: rgba(255, 255, 255, 0.1);
+  --shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(110, 231, 216, 0.18), transparent 20%),
+    radial-gradient(circle at bottom right, rgba(139, 92, 246, 0.16), transparent 22%),
+    var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+.container {
+  width: min(1120px, calc(100% - 2rem));
+  margin: 0 auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(14px);
+  background: rgba(7, 17, 31, 0.72);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-wrap,
+.footer-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+.brand {
+  color: var(--text);
+  font-size: 1.25rem;
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.nav-links a,
+.site-footer p {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: 2rem;
+  padding: 5rem 0 3rem;
+}
+
+.hero-copy h1 {
+  font-size: clamp(2.5rem, 6vw, 4.6rem);
+  line-height: 1.05;
+  margin: 0 0 1rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  font-size: 0.78rem;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+.subcopy,
+.about-grid p,
+.project-card p,
+.contact-box p {
+  color: var(--muted);
+  max-width: 64ch;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 0.9rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.2rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: 160ms ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), #4f8cff);
+  color: #06111f;
+}
+
+.btn-secondary {
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.hero-card,
+.project-card,
+.contact-box,
+.about-grid {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+}
+
+.hero-card {
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.mini-card {
+  background: var(--panel-strong);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1rem;
+  border-radius: 16px;
+}
+
+.label,
+.project-tag {
+  display: inline-block;
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.section {
+  padding: 2rem 0 4rem;
+}
+
+.section-heading h2 {
+  margin-top: 0.2rem;
+  margin-bottom: 1.2rem;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 1.25rem;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.project-card,
+.contact-box {
+  padding: 1.3rem;
+}
+
+.contact-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.background-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+.orb-1 {
+  width: 18rem;
+  height: 18rem;
+  background: rgba(110, 231, 216, 0.16);
+  top: 8%;
+  right: 10%;
+}
+
+.orb-2 {
+  width: 16rem;
+  height: 16rem;
+  background: rgba(139, 92, 246, 0.2);
+  bottom: 8%;
+  left: 5%;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 840px) {
+  .hero,
+  .about-grid,
+  .project-grid,
+  .contact-box {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-box {
+    display: grid;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hero {
+    padding-top: 3rem;
+  }
+}
